@@ -114,6 +114,7 @@
             margin-left: 260px;
             padding: 20px 30px;
             min-height: 100vh;
+            padding-bottom: 100px;
         }
 
         /* Header */
@@ -221,13 +222,6 @@
             font-size: 1.1rem;
             color: #1e3a5f;
             font-weight: 600;
-        }
-
-        .view-all {
-            color: #4facfe;
-            font-size: 0.9rem;
-            text-decoration: none;
-            font-weight: 500;
         }
 
         .sop-grid {
@@ -432,6 +426,260 @@
             cursor: pointer;
         }
 
+        /* Chatbot Styles */
+        .chatbot-toggle {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .chatbot-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(102, 126, 234, 0.5);
+        }
+
+        .chatbot-toggle.active {
+            background: #dc3545;
+        }
+
+        .chatbot-window {
+            position: fixed;
+            bottom: 100px;
+            right: 25px;
+            width: 380px;
+            height: 500px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            z-index: 998;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chatbot-window.active {
+            display: flex;
+        }
+
+        .chatbot-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .chatbot-header .avatar {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .chatbot-header .info h4 {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .chatbot-header .info p {
+            font-size: 0.75rem;
+            opacity: 0.8;
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background: #f8f9fa;
+        }
+
+        .chat-message {
+            margin-bottom: 15px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-message.user {
+            flex-direction: row-reverse;
+        }
+
+        .chat-message .bubble {
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 18px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .chat-message.bot .bubble {
+            background: white;
+            color: #333;
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .chat-message.user .bubble {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+
+        .chat-message .avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .chat-message.bot .avatar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .chat-message.user .avatar {
+            background: #e0e0e0;
+            color: #666;
+        }
+
+        .chatbot-input {
+            padding: 15px;
+            background: white;
+            border-top: 1px solid #eee;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .chatbot-input input {
+            flex: 1;
+            border: 1px solid #e0e0e0;
+            border-radius: 25px;
+            padding: 12px 20px;
+            font-size: 0.9rem;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .chatbot-input input:focus {
+            border-color: #667eea;
+        }
+
+        .chatbot-input button {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .chatbot-input .voice-btn {
+            background: #f0f0f0;
+            color: #666;
+        }
+
+        .chatbot-input .voice-btn:hover {
+            background: #e0e0e0;
+        }
+
+        .chatbot-input .voice-btn.recording {
+            background: #dc3545;
+            color: white;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .chatbot-input .send-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .chatbot-input .send-btn:hover {
+            opacity: 0.9;
+        }
+
+        .chatbot-input .send-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .typing-indicator {
+            display: flex;
+            gap: 5px;
+            padding: 12px 16px;
+            background: white;
+            border-radius: 18px;
+            border-bottom-left-radius: 4px;
+            width: fit-content;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .typing-indicator span {
+            width: 8px;
+            height: 8px;
+            background: #999;
+            border-radius: 50%;
+            animation: typing 1.4s infinite;
+        }
+
+        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-5px); }
+        }
+
+        /* No Results */
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: #999;
+        }
+
+        .no-results i {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #ddd;
+        }
+
+        .no-results h4 {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .sidebar {
@@ -459,25 +707,13 @@
                 flex-direction: column;
                 align-items: flex-start;
             }
-        }
 
-        /* No Results */
-        .no-results {
-            text-align: center;
-            padding: 60px 20px;
-            color: #999;
-        }
-
-        .no-results i {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            color: #ddd;
-        }
-
-        .no-results h4 {
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 10px;
+            .chatbot-window {
+                width: calc(100% - 30px);
+                right: 15px;
+                bottom: 90px;
+                height: 60vh;
+            }
         }
     </style>
 </head>
@@ -579,9 +815,9 @@
                 <p>Departemen</p>
             </div>
             <div class="stat-card purple">
-                <div class="icon"><i class="fas fa-clock"></i></div>
-                <h3 id="last-update">-</h3>
-                <p>Update Terakhir</p>
+                <div class="icon"><i class="fas fa-robot"></i></div>
+                <h3>AI</h3>
+                <p>Assistant Ready</p>
             </div>
         </div>
 
@@ -596,7 +832,7 @@
             <div class="no-results" id="noResults" style="display: none;">
                 <i class="fas fa-search"></i>
                 <h4>SOP tidak ditemukan</h4>
-                <p>Coba gunakan kata kunci lain</p>
+                <p>Coba gunakan kata kunci lain atau tanya AI Assistant</p>
             </div>
         </div>
     </main>
@@ -618,7 +854,51 @@
         </div>
     </div>
 
+    <!-- Chatbot Toggle Button -->
+    <button class="chatbot-toggle" id="chatbotToggle" onclick="toggleChatbot()">
+        <i class="fas fa-robot"></i>
+    </button>
+
+    <!-- Chatbot Window -->
+    <div class="chatbot-window" id="chatbotWindow">
+        <div class="chatbot-header">
+            <div class="avatar">
+                <i class="fas fa-robot"></i>
+            </div>
+            <div class="info">
+                <h4>SOP Assistant</h4>
+                <p>Powered by DeepSeek AI</p>
+            </div>
+        </div>
+        <div class="chatbot-messages" id="chatMessages">
+            <div class="chat-message bot">
+                <div class="avatar"><i class="fas fa-robot"></i></div>
+                <div class="bubble">
+                    Halo! Saya AI Assistant untuk SOP ZUMA Group. Saya bisa membantu Anda:
+                    <br><br>
+                    - Mencari informasi SOP<br>
+                    - Menjelaskan prosedur<br>
+                    - Menjawab pertanyaan tentang SOP
+                    <br><br>
+                    Silakan tanya apa saja!
+                </div>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <button class="voice-btn" id="voiceBtn" onclick="toggleVoice()">
+                <i class="fas fa-microphone"></i>
+            </button>
+            <input type="text" id="chatInput" placeholder="Ketik pertanyaan..." onkeypress="handleKeyPress(event)">
+            <button class="send-btn" id="sendBtn" onclick="sendMessage()">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
     <script>
+        // API Configuration
+        const API_URL = 'https://sop-dashboard-api-production.up.railway.app'; // Update setelah deploy Railway
+
         // Data SOP
         const sopData = [
             {
@@ -641,6 +921,34 @@
 
         let currentCategory = 'all';
         let searchQuery = '';
+        let chatHistory = [];
+        let isRecording = false;
+        let recognition = null;
+
+        // Initialize Speech Recognition
+        if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            recognition = new SpeechRecognition();
+            recognition.lang = 'id-ID';
+            recognition.continuous = false;
+            recognition.interimResults = false;
+
+            recognition.onresult = function(event) {
+                const transcript = event.results[0][0].transcript;
+                document.getElementById('chatInput').value = transcript;
+                stopVoice();
+                sendMessage();
+            };
+
+            recognition.onerror = function(event) {
+                console.error('Speech recognition error:', event.error);
+                stopVoice();
+            };
+
+            recognition.onend = function() {
+                stopVoice();
+            };
+        }
 
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
@@ -652,14 +960,11 @@
         function updateStats() {
             document.getElementById('total-sop').textContent = sopData.length;
             document.getElementById('active-sop').textContent = sopData.length;
-            document.getElementById('last-update').textContent = 'Hari ini';
         }
 
         function updateCounts() {
             const categories = ['hrga', 'operasional', 'rnd', 'fatal', 'cnm', 'online', 'wholesale', 'warehouse'];
-
             document.getElementById('count-all').textContent = sopData.length;
-
             categories.forEach(cat => {
                 const count = sopData.filter(s => s.category === cat).length;
                 const el = document.getElementById(`count-${cat}`);
@@ -670,15 +975,12 @@
         function renderSOP() {
             const grid = document.getElementById('sopGrid');
             const noResults = document.getElementById('noResults');
-
             let filtered = sopData;
 
-            // Filter by category
             if (currentCategory !== 'all') {
                 filtered = filtered.filter(s => s.category === currentCategory);
             }
 
-            // Filter by search
             if (searchQuery) {
                 const query = searchQuery.toLowerCase();
                 filtered = filtered.filter(s =>
@@ -694,7 +996,6 @@
             }
 
             noResults.style.display = 'none';
-
             grid.innerHTML = filtered.map(sop => `
                 <div class="sop-card" onclick="openSOP(${sop.id})">
                     <div class="card-header">
@@ -747,22 +1048,15 @@
 
         function filterCategory(category) {
             currentCategory = category;
-
-            // Update active nav
             document.querySelectorAll('.nav-item').forEach(item => {
                 item.classList.remove('active');
                 if (item.dataset.category === category) {
                     item.classList.add('active');
                 }
             });
-
-            // Update title
             const title = category === 'all' ? 'Semua SOP' : `SOP ${getCategoryName(category)}`;
             document.getElementById('page-title').textContent = title;
-
             renderSOP();
-
-            // Close sidebar on mobile
             if (window.innerWidth <= 768) {
                 document.getElementById('sidebar').classList.remove('active');
             }
@@ -776,11 +1070,8 @@
         function openSOP(id) {
             const sop = sopData.find(s => s.id === id);
             if (!sop) return;
-
             document.getElementById('modalTitle').textContent = sop.title;
-
             const pdfContent = document.getElementById('pdfContent');
-
             if (sop.pdfUrl) {
                 pdfContent.innerHTML = `<iframe src="${sop.pdfUrl}" style="width:100%; height:100%; border:none;" allow="autoplay"></iframe>`;
             } else {
@@ -788,11 +1079,8 @@
                     <i class="fas fa-file-pdf"></i>
                     <p><strong>${sop.title}</strong></p>
                     <small>File PDF belum tersedia</small>
-                    <br><br>
-                    <small>Untuk menambahkan PDF, edit data di sopData dengan menambahkan URL PDF</small>
                 `;
             }
-
             document.getElementById('pdfModal').classList.add('active');
         }
 
@@ -804,9 +1092,143 @@
             document.getElementById('sidebar').classList.toggle('active');
         }
 
+        // Chatbot Functions
+        function toggleChatbot() {
+            const window = document.getElementById('chatbotWindow');
+            const toggle = document.getElementById('chatbotToggle');
+            window.classList.toggle('active');
+            toggle.classList.toggle('active');
+
+            if (toggle.classList.contains('active')) {
+                toggle.innerHTML = '<i class="fas fa-times"></i>';
+            } else {
+                toggle.innerHTML = '<i class="fas fa-robot"></i>';
+            }
+        }
+
+        function addMessage(content, isUser = false) {
+            const messagesDiv = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-message ${isUser ? 'user' : 'bot'}`;
+            messageDiv.innerHTML = `
+                <div class="avatar"><i class="fas fa-${isUser ? 'user' : 'robot'}"></i></div>
+                <div class="bubble">${content}</div>
+            `;
+            messagesDiv.appendChild(messageDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        function showTyping() {
+            const messagesDiv = document.getElementById('chatMessages');
+            const typingDiv = document.createElement('div');
+            typingDiv.id = 'typingIndicator';
+            typingDiv.className = 'chat-message bot';
+            typingDiv.innerHTML = `
+                <div class="avatar"><i class="fas fa-robot"></i></div>
+                <div class="typing-indicator">
+                    <span></span><span></span><span></span>
+                </div>
+            `;
+            messagesDiv.appendChild(typingDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        function hideTyping() {
+            const typing = document.getElementById('typingIndicator');
+            if (typing) typing.remove();
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            if (!message) return;
+
+            addMessage(message, true);
+            input.value = '';
+
+            chatHistory.push({ role: 'user', content: message });
+
+            showTyping();
+            document.getElementById('sendBtn').disabled = true;
+
+            try {
+                const response = await fetch(`${API_URL}/api/chat`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message, history: chatHistory.slice(-10) })
+                });
+
+                const data = await response.json();
+                hideTyping();
+
+                if (data.error) {
+                    addMessage('Maaf, terjadi kesalahan. Silakan coba lagi.');
+                } else {
+                    addMessage(data.response);
+                    chatHistory.push({ role: 'assistant', content: data.response });
+
+                    // Text-to-Speech
+                    if ('speechSynthesis' in window) {
+                        const utterance = new SpeechSynthesisUtterance(data.response);
+                        utterance.lang = 'id-ID';
+                        utterance.rate = 1;
+                        speechSynthesis.speak(utterance);
+                    }
+                }
+            } catch (error) {
+                hideTyping();
+                addMessage('Tidak dapat terhubung ke server. Pastikan backend sudah di-deploy.');
+                console.error('Chat error:', error);
+            }
+
+            document.getElementById('sendBtn').disabled = false;
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        function toggleVoice() {
+            if (!recognition) {
+                alert('Browser Anda tidak mendukung voice input. Gunakan Chrome untuk fitur ini.');
+                return;
+            }
+
+            if (isRecording) {
+                stopVoice();
+            } else {
+                startVoice();
+            }
+        }
+
+        function startVoice() {
+            isRecording = true;
+            const btn = document.getElementById('voiceBtn');
+            btn.classList.add('recording');
+            btn.innerHTML = '<i class="fas fa-stop"></i>';
+            recognition.start();
+        }
+
+        function stopVoice() {
+            isRecording = false;
+            const btn = document.getElementById('voiceBtn');
+            btn.classList.remove('recording');
+            btn.innerHTML = '<i class="fas fa-microphone"></i>';
+            if (recognition) {
+                recognition.stop();
+            }
+        }
+
         // Close modal on escape key
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') closeModal();
+            if (e.key === 'Escape') {
+                closeModal();
+                if (document.getElementById('chatbotWindow').classList.contains('active')) {
+                    toggleChatbot();
+                }
+            }
         });
 
         // Close modal on overlay click
