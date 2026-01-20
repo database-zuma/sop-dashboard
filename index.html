@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard SOP - Store Operations</title>
+    <title>Dashboard SOP - ZUMA Group</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -270,14 +270,15 @@
             flex-shrink: 0;
         }
 
-        .sop-card .card-icon.opening { background: #e3f2fd; color: #1976d2; }
-        .sop-card .card-icon.closing { background: #fce4ec; color: #c2185b; }
-        .sop-card .card-icon.inventory { background: #fff3e0; color: #f57c00; }
-        .sop-card .card-icon.customer { background: #e8f5e9; color: #388e3c; }
-        .sop-card .card-icon.safety { background: #ffebee; color: #d32f2f; }
-        .sop-card .card-icon.cashier { background: #f3e5f5; color: #7b1fa2; }
-        .sop-card .card-icon.display { background: #e0f7fa; color: #00838f; }
-        .sop-card .card-icon.cleaning { background: #f1f8e9; color: #558b2f; }
+        /* Category Colors */
+        .sop-card .card-icon.hrga { background: #e3f2fd; color: #1976d2; }
+        .sop-card .card-icon.operasional { background: #fff3e0; color: #f57c00; }
+        .sop-card .card-icon.rnd { background: #f3e5f5; color: #7b1fa2; }
+        .sop-card .card-icon.fatal { background: #ffebee; color: #d32f2f; }
+        .sop-card .card-icon.cnm { background: #e8f5e9; color: #388e3c; }
+        .sop-card .card-icon.online { background: #e0f7fa; color: #00838f; }
+        .sop-card .card-icon.wholesale { background: #fce4ec; color: #c2185b; }
+        .sop-card .card-icon.warehouse { background: #fff8e1; color: #ff8f00; }
 
         .sop-card h4 {
             font-size: 1rem;
@@ -490,7 +491,7 @@
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <h1><i class="fas fa-book-open"></i> SOP Dashboard</h1>
-            <p>Store Operations</p>
+            <p>ZUMA Group</p>
         </div>
 
         <nav class="nav-section">
@@ -500,49 +501,49 @@
                 <span>Semua SOP</span>
                 <span class="badge" id="count-all">0</span>
             </a>
-            <a class="nav-item" data-category="opening" onclick="filterCategory('opening')">
-                <i class="fas fa-door-open"></i>
-                <span>Opening Store</span>
-                <span class="badge" id="count-opening">0</span>
-            </a>
-            <a class="nav-item" data-category="closing" onclick="filterCategory('closing')">
-                <i class="fas fa-door-closed"></i>
-                <span>Closing Store</span>
-                <span class="badge" id="count-closing">0</span>
-            </a>
-            <a class="nav-item" data-category="inventory" onclick="filterCategory('inventory')">
-                <i class="fas fa-boxes"></i>
-                <span>Inventory</span>
-                <span class="badge" id="count-inventory">0</span>
-            </a>
-            <a class="nav-item" data-category="customer" onclick="filterCategory('customer')">
-                <i class="fas fa-users"></i>
-                <span>Customer Service</span>
-                <span class="badge" id="count-customer">0</span>
-            </a>
         </nav>
 
         <nav class="nav-section">
-            <div class="nav-section-title">Operasional</div>
-            <a class="nav-item" data-category="cashier" onclick="filterCategory('cashier')">
-                <i class="fas fa-cash-register"></i>
-                <span>Kasir</span>
-                <span class="badge" id="count-cashier">0</span>
+            <div class="nav-section-title">Departemen</div>
+            <a class="nav-item" data-category="hrga" onclick="filterCategory('hrga')">
+                <i class="fas fa-users-cog"></i>
+                <span>HRGA</span>
+                <span class="badge" id="count-hrga">0</span>
             </a>
-            <a class="nav-item" data-category="display" onclick="filterCategory('display')">
-                <i class="fas fa-store"></i>
-                <span>Display Produk</span>
-                <span class="badge" id="count-display">0</span>
+            <a class="nav-item" data-category="operasional" onclick="filterCategory('operasional')">
+                <i class="fas fa-cogs"></i>
+                <span>Operasional</span>
+                <span class="badge" id="count-operasional">0</span>
             </a>
-            <a class="nav-item" data-category="cleaning" onclick="filterCategory('cleaning')">
-                <i class="fas fa-broom"></i>
-                <span>Kebersihan</span>
-                <span class="badge" id="count-cleaning">0</span>
+            <a class="nav-item" data-category="rnd" onclick="filterCategory('rnd')">
+                <i class="fas fa-flask"></i>
+                <span>R&D</span>
+                <span class="badge" id="count-rnd">0</span>
             </a>
-            <a class="nav-item" data-category="safety" onclick="filterCategory('safety')">
-                <i class="fas fa-shield-alt"></i>
-                <span>Keamanan</span>
-                <span class="badge" id="count-safety">0</span>
+            <a class="nav-item" data-category="fatal" onclick="filterCategory('fatal')">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span>FATAL</span>
+                <span class="badge" id="count-fatal">0</span>
+            </a>
+            <a class="nav-item" data-category="cnm" onclick="filterCategory('cnm')">
+                <i class="fas fa-bullhorn"></i>
+                <span>CNM</span>
+                <span class="badge" id="count-cnm">0</span>
+            </a>
+            <a class="nav-item" data-category="online" onclick="filterCategory('online')">
+                <i class="fas fa-globe"></i>
+                <span>Online</span>
+                <span class="badge" id="count-online">0</span>
+            </a>
+            <a class="nav-item" data-category="wholesale" onclick="filterCategory('wholesale')">
+                <i class="fas fa-truck"></i>
+                <span>Wholesale</span>
+                <span class="badge" id="count-wholesale">0</span>
+            </a>
+            <a class="nav-item" data-category="warehouse" onclick="filterCategory('warehouse')">
+                <i class="fas fa-warehouse"></i>
+                <span>Warehouse</span>
+                <span class="badge" id="count-warehouse">0</span>
             </a>
         </nav>
     </aside>
@@ -575,7 +576,7 @@
             <div class="stat-card orange">
                 <div class="icon"><i class="fas fa-folder"></i></div>
                 <h3 id="total-category">8</h3>
-                <p>Kategori</p>
+                <p>Departemen</p>
             </div>
             <div class="stat-card purple">
                 <div class="icon"><i class="fas fa-clock"></i></div>
@@ -622,99 +623,19 @@
         const sopData = [
             {
                 id: 1,
-                title: "Prosedur Opening Store",
-                category: "opening",
-                description: "Langkah-langkah membuka toko di pagi hari, termasuk persiapan kasir dan pengecekan stok.",
-                lastUpdated: "15 Jan 2025",
-                pdfUrl: ""
+                title: "ZUMA-SOP-HO-06 SOP Return Barang Wholesale",
+                category: "warehouse",
+                description: "Prosedur pengembalian barang wholesale ke warehouse.",
+                lastUpdated: "20 Jan 2026",
+                pdfUrl: "https://drive.google.com/file/d/1kvmxJReHlTYzclxgZPpLfnSGKBu1W1b3/preview"
             },
             {
                 id: 2,
-                title: "Prosedur Closing Store",
-                category: "closing",
-                description: "Panduan menutup toko, rekonsiliasi kasir, dan pengamanan area.",
-                lastUpdated: "15 Jan 2025",
-                pdfUrl: ""
-            },
-            {
-                id: 3,
-                title: "Penerimaan Barang",
-                category: "inventory",
-                description: "Prosedur penerimaan barang dari supplier, pengecekan kualitas dan kuantitas.",
-                lastUpdated: "14 Jan 2025",
-                pdfUrl: ""
-            },
-            {
-                id: 4,
-                title: "Stock Opname",
-                category: "inventory",
-                description: "Panduan melakukan stock opname bulanan untuk memastikan akurasi inventaris.",
-                lastUpdated: "10 Jan 2025",
-                pdfUrl: ""
-            },
-            {
-                id: 5,
-                title: "Handling Komplain",
-                category: "customer",
-                description: "Cara menangani keluhan pelanggan dengan profesional dan solutif.",
-                lastUpdated: "12 Jan 2025",
-                pdfUrl: ""
-            },
-            {
-                id: 6,
-                title: "Transaksi Kasir",
-                category: "cashier",
-                description: "Prosedur standar transaksi kasir termasuk pembayaran tunai, kartu, dan QRIS.",
-                lastUpdated: "13 Jan 2025",
-                pdfUrl: ""
-            },
-            {
-                id: 7,
-                title: "Retur Barang",
-                category: "cashier",
-                description: "Panduan proses pengembalian barang dan refund ke pelanggan.",
-                lastUpdated: "11 Jan 2025",
-                pdfUrl: ""
-            },
-            {
-                id: 8,
-                title: "Penataan Display",
-                category: "display",
-                description: "Standar penataan produk di rak dan area display untuk memaksimalkan penjualan.",
-                lastUpdated: "09 Jan 2025",
-                pdfUrl: ""
-            },
-            {
-                id: 9,
-                title: "Kebersihan Harian",
-                category: "cleaning",
-                description: "Jadwal dan standar kebersihan area toko yang harus dipenuhi setiap hari.",
-                lastUpdated: "08 Jan 2025",
-                pdfUrl: ""
-            },
-            {
-                id: 10,
-                title: "Prosedur Keamanan",
-                category: "safety",
-                description: "Panduan keamanan toko termasuk penanganan situasi darurat dan pencurian.",
-                lastUpdated: "07 Jan 2025",
-                pdfUrl: ""
-            },
-            {
-                id: 11,
-                title: "Greeting Customer",
-                category: "customer",
-                description: "Standar menyapa dan melayani pelanggan yang datang ke toko.",
-                lastUpdated: "06 Jan 2025",
-                pdfUrl: ""
-            },
-            {
-                id: 12,
-                title: "FIFO Produk",
-                category: "inventory",
-                description: "Penerapan sistem First In First Out untuk produk dengan masa kadaluarsa.",
-                lastUpdated: "05 Jan 2025",
-                pdfUrl: ""
+                title: "CV-UBB-SOP-HO-01 SOP Perdagangan Wholesale",
+                category: "warehouse",
+                description: "Prosedur perdagangan wholesale CV UBB.",
+                lastUpdated: "20 Jan 2026",
+                pdfUrl: "https://drive.google.com/file/d/1BuuWKZ92EJuztjji7hInHb0KnKFRbMoq/preview"
             }
         ];
 
@@ -735,7 +656,7 @@
         }
 
         function updateCounts() {
-            const categories = ['opening', 'closing', 'inventory', 'customer', 'cashier', 'display', 'cleaning', 'safety'];
+            const categories = ['hrga', 'operasional', 'rnd', 'fatal', 'cnm', 'online', 'wholesale', 'warehouse'];
 
             document.getElementById('count-all').textContent = sopData.length;
 
@@ -798,28 +719,28 @@
 
         function getCategoryIcon(category) {
             const icons = {
-                opening: 'fa-door-open',
-                closing: 'fa-door-closed',
-                inventory: 'fa-boxes',
-                customer: 'fa-users',
-                cashier: 'fa-cash-register',
-                display: 'fa-store',
-                cleaning: 'fa-broom',
-                safety: 'fa-shield-alt'
+                hrga: 'fa-users-cog',
+                operasional: 'fa-cogs',
+                rnd: 'fa-flask',
+                fatal: 'fa-exclamation-triangle',
+                cnm: 'fa-bullhorn',
+                online: 'fa-globe',
+                wholesale: 'fa-truck',
+                warehouse: 'fa-warehouse'
             };
             return icons[category] || 'fa-file';
         }
 
         function getCategoryName(category) {
             const names = {
-                opening: 'Opening',
-                closing: 'Closing',
-                inventory: 'Inventory',
-                customer: 'Customer Service',
-                cashier: 'Kasir',
-                display: 'Display',
-                cleaning: 'Kebersihan',
-                safety: 'Keamanan'
+                hrga: 'HRGA',
+                operasional: 'Operasional',
+                rnd: 'R&D',
+                fatal: 'FATAL',
+                cnm: 'CNM',
+                online: 'Online',
+                wholesale: 'Wholesale',
+                warehouse: 'Warehouse'
             };
             return names[category] || category;
         }
@@ -861,7 +782,7 @@
             const pdfContent = document.getElementById('pdfContent');
 
             if (sop.pdfUrl) {
-                pdfContent.innerHTML = `<iframe src="${sop.pdfUrl}" style="width:100%; height:100%; border:none;"></iframe>`;
+                pdfContent.innerHTML = `<iframe src="${sop.pdfUrl}" style="width:100%; height:100%; border:none;" allow="autoplay"></iframe>`;
             } else {
                 pdfContent.innerHTML = `
                     <i class="fas fa-file-pdf"></i>
